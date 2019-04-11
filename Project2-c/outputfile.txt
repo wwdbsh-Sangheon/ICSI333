@@ -1,0 +1,14 @@
+); delimiters * char const str, * char ( strtok * char 
+
+tokens into string Split 
+tokens into str split function this to calls of sequence A 
+characters contiguous of sequences are which 
+delimiters. of part are that characters the of any by separated 
+
+string C a expects function the call, first a On 
+the as used is character first whose , str for argument as 
+tokens. for scan to location starting 
+
+pointer null a expects function ,the calls subsequent In 
+ofthe end the after right position the uses and 
+scanning. for location starting new the as token last 

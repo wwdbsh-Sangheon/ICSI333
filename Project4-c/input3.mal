@@ -1,0 +1,32 @@
+#Finding the maximum value in an integer array of size 10.
+.data
+arr: .word 0:10 #Space for the array.
+outstr: .asciiz "The maximum value is "
+newline: .asciiz "\n"
+.text
+getmax: la $7, arr
+lw $5, 0($7)
+li $8, 10
+move $6, $0 #Initialize loop index to zero.
+loop: addi $7, $7, 4 #The addr. of the next element.
+addi $6, $6, 1
+beq $6, $8, print #When $6 = $8, we have the correct max.
+#Compare max with the value of the next array element.
+lw $9, 0($7)
+bge $5, $9, loop
+move $5, $9 #Update the max value.
+b loop
+(over)
+1
+#Print out the max value.
+print: la $a0, outstr #Output string.
+li $v0, 4
+syscall
+move $a0, $5 #Value to be printed must be in $a0
+li $v0, 1 
+syscall
+la $a0, newline #Output "\n".
+li $v0, 4
+syscall
+li $v0, 10 #exit command.
+syscall

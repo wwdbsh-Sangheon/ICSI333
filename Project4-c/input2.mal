@@ -1,0 +1,28 @@
+          .data
+inchar:   .space    3
+prompt:   .asciiz  "Type a char: "
+yes_str:  .asciiz  "Yes -- It is a digit.\n"
+no_str:   .asciiz  "No -- It is not a digit.\n"
+          .text
+main:     li       $v0, prompt         #Command for print string. inchar
+          la       $a0, prompt   #Start addr. of prompt string.
+          syscall
+          li       $v0, 8       #Command for read string.
+          la       $a0, inchar  #Buffer
+          li       $a1, 3       #Max. no. of characters (incl. newline)
+          syscall
+          lbu      $4, inchar   #Get the character into $4.
+          li       $5, 48       # 48 is the ASCII code for '0'
+          li       $6, 57       # 57 is the ASCII code for '9'
+          blt      $4, $5, no_part  #If ascii code is < 48 or > 57
+          bgt      $4, $6, no_part  #it can't be a digit.
+yes_part: li       $v0, 4
+          la       $a0, yes_str
+          syscall
+          li       $v0, 10
+          syscall
+no_part:  li       $v0, 4
+          la       $a0, no_str
+          syscall
+          li       $v0, 10
+          syscall

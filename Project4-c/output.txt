@@ -1,0 +1,17 @@
+Variable ID -avg-
+	i20: 	sw 		$15,avg 		
+	sw 		$15,avg 
+Variable ID -i1-
+	__start: 	lw 		$15,i1 		
+	la 		$16,i1 
+Variable ID -i2-
+	lw 		$16,i2 		
+Variable ID -i3-
+	lw 		$16,i3 		
+	add 		i3,i3,1 
+Variable ID -prompt-
+	puts prompt 
+Variable ID -nl-
+Flow Control ID -__start-
+Flow Control ID -i10-
+Flow Control ID -i20-
